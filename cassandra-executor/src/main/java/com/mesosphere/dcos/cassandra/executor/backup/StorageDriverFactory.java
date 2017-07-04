@@ -18,7 +18,7 @@ public class StorageDriverFactory {
   public static BackupStorageDriver createStorageDriver(CassandraTask cassandraTask) {
     String externalLocation = null;
     switch (cassandraTask.getType()) {
-      case BACKUP_SNAPSHOT:
+      case BACKUP_UPLOAD:
         externalLocation = ((BackupUploadTask)cassandraTask).getBackupRestoreContext().getExternalLocation();
         break;
       case BACKUP_SCHEMA:
@@ -35,6 +35,7 @@ public class StorageDriverFactory {
   }
 
   private static BackupStorageDriver getBackupStorageDriver(String externalLocation) {
+    LOGGER.info("Determing storage driver for  --" + externalLocation);
     if (StorageUtil.isAzure(externalLocation)) {
       LOGGER.info("Using the Azure Driver.");
       return new AzureStorageDriver();
