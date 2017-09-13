@@ -405,4 +405,19 @@ public class AzureStorageDriver implements BackupStorageDriver {
 
     return size;
   }
+  public static void main (final String[] args) throws  Exception{
+    final String filePath = "LICENSE";
+    final AzureStorageDriver driver = new AzureStorageDriver();
+    final String accountName = "nitjain";
+    final String accountKey = "th6CkgmIVsxNBNGWok452HyPncqsURRhhLJgHsxn44FPENNx8xbkUMMYRygomM53tj1hieSFp9QOENQQhuVTEg==";
+    final String backupName = "test";
+    final String nodeId = "test1";
+
+    final String key = String.format("%s/%s", backupName, nodeId);
+    final String containerName = "backup";
+
+    final CloudBlobContainer container = driver.getCloudBlobContainer(accountName, accountKey, containerName);
+
+   driver.uploadFile(container,key,new File(filePath));
+  }
 }
