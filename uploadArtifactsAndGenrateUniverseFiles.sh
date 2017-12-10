@@ -30,7 +30,7 @@ BUCKET=$S3_BUCKET
 FOLDER_PATH=dcos/frameworks/mds-cassandra/${RELEASE_VERSION}
 export S3_URL="s3://${BUCKET}/${FOLDER_PATH}"
 #used in build.sh to upload framework resources to s3
-export ARTIFACT_DIR="https://${BUCKET}.s3.amazonaws.com/${FOLDER_PATH}"
+export ARTIFACT_DIR="https://${BUCKET}.s3-accelerate.amazonaws.com/${FOLDER_PATH}"
 
 
 #####################################
