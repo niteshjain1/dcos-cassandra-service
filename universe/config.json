@@ -530,7 +530,44 @@
 					"type": "integer",
 					"description": "The total size of the commit log in Mb.",
 					"default": 8192
+				},
+				"concurrent_compactors": {
+					"id": "http://cassandra/docs/mesosphere.com/cassandra/concurrent_compactors",
+					"type": "integer",
+					"description": "The maximum number fo concurrent compactors",
+					"default": 2
+				},
+				"memtable_heap_space_in_mb": {
+					"id": "http://cassandra/docs/mesosphere.com/cassandra/memtable_heap_space_in_mb",
+					"type": "integer",
+					"description": "The maximum value of memtable heap space in mb",
+					"default": 2048
+				},
+				"memtable_flush_writers": {
+					"id": "http://cassandra/docs/mesosphere.com/cassandra/memtable_flush_writers",
+					"type": "integer",
+					"description": "The number of memtable flush writers",
+					"default": 8
+				},
+				"inter_dc_stream_throughput_outbound_megabits_per_sec": {
+					"id": "http://cassandra/docs/mesosphere.com/cassandra/inter_dc_stream_throughput_outbound_megabits_per_sec",
+					"type": "integer",
+					"description": "The maximum limit on inter dc stream throughput",
+					"default": 500
+				},
+				"stream_throughput_outbound_megabits_per_sec": {
+					"id": "http://cassandra/docs/mesosphere.com/cassandra/stream_throughput_outbound_megabits_per_sec",
+					"type": "integer",
+					"description": "The maximum limit on stream throughput",
+					"default": 1000
+				},
+				"memtable_cleanup_threshold": {
+					"id": "http://cassandra/docs/mesosphere.com/cassandra/memtable_cleanup_threshold",
+					"type": "number",
+					"description": "Percentage at which largest memtable will be flushed",
+					"default": 0.5
 				}
+
 			},
 			"additionalProperties": false,
 			"required": [
